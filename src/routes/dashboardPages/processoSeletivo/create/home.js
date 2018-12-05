@@ -8,7 +8,6 @@ import {
     FormGroup
      } from 'react-bootstrap';
 import Processos from "../../../components/Utils/processoSeletivo/ProcessoSeletivoForm";
-import history from '../../../core/history';
 
 const title = 'ProcessoSeletivo';
 
@@ -18,7 +17,7 @@ function displayProcessoSeletivo(props, context) {
     <div>
       <div className="row">
         <div className="col-lg-12">
-          <PageHeader>Processo Seletivo</PageHeader>
+          <PageHeader>Criação Processo Seletivo</PageHeader>
         </div>
       </div>
       <div className="row">

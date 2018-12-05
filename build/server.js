@@ -116,7 +116,7 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(192);
+  var _assets = __webpack_require__(195);
   
   var _assets2 = _interopRequireDefault(_assets);
   
@@ -967,7 +967,11 @@ module.exports =
   
   var _processoSeletivo2 = _interopRequireDefault(_processoSeletivo);
   
-  var _error = __webpack_require__(191);
+  var _edit = __webpack_require__(191);
+  
+  var _edit2 = _interopRequireDefault(_edit);
+  
+  var _error = __webpack_require__(194);
   
   var _error2 = _interopRequireDefault(_error);
   
@@ -976,16 +980,6 @@ module.exports =
   var _Header2 = _interopRequireDefault(_Header);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  // Child routes
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
   
   exports.default = [{
     path: '/login',
@@ -1042,7 +1036,7 @@ module.exports =
   
     // place new routes before...
     // content,
-    _error2.default],
+    _edit2.default, _error2.default],
   
     action: function action(_ref2) {
       var _this2 = this;
@@ -1137,6 +1131,16 @@ module.exports =
       }))();
     }
   }];
+  
+  // Child routes
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
 
 /***/ }),
 /* 28 */
@@ -30161,9 +30165,13 @@ module.exports =
   
   var _reactBootstrap = __webpack_require__(38);
   
-  var _ProcessoSeletivoForm = __webpack_require__(193);
+  var _ProcessoSeletivoForm = __webpack_require__(189);
   
   var _ProcessoSeletivoForm2 = _interopRequireDefault(_ProcessoSeletivoForm);
+  
+  var _history = __webpack_require__(40);
+  
+  var _history2 = _interopRequireDefault(_history);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
@@ -30201,13 +30209,6 @@ module.exports =
                 'Consulta'
               ) },
             _react2.default.createElement(
-              _reactBootstrap.Button,
-              { type: 'submit', onClick: function onClick(e) {
-                  return ProcessoOptions();
-                } },
-              'Reload'
-            ),
-            _react2.default.createElement(
               _reactBootstrap.FormGroup,
               { controlId: 'formControlsSelect' },
               _react2.default.createElement(
@@ -30219,13 +30220,8 @@ module.exports =
             ),
             _react2.default.createElement(
               _reactBootstrap.Button,
-              { type: 'criar', className: 'col-lg-3' },
+              { type: 'button', className: 'col-lg-3' },
               'Criar Novo Processo Seletivo'
-            ),
-            _react2.default.createElement(
-              _reactBootstrap.Button,
-              { type: 'editar', className: 'col-lg-3', bsStyle: 'primary' },
-              'Editar Processo Seletivo'
             )
           )
         )
@@ -30237,7 +30233,181 @@ module.exports =
   exports.default = displayProcessoSeletivo;
 
 /***/ }),
-/* 189 */,
+/* 189 */
+/***/ (function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _getPrototypeOf = __webpack_require__(29);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(30);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(31);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(32);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(33);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(11);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _reactBootstrap = __webpack_require__(38);
+  
+  var _axios = __webpack_require__(190);
+  
+  var _axios2 = _interopRequireDefault(_axios);
+  
+  var _history = __webpack_require__(40);
+  
+  var _history2 = _interopRequireDefault(_history);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var ProcessoSeletivoForm = function (_Component) {
+    (0, _inherits3.default)(ProcessoSeletivoForm, _Component);
+  
+    function ProcessoSeletivoForm() {
+      (0, _classCallCheck3.default)(this, ProcessoSeletivoForm);
+  
+      var _this = (0, _possibleConstructorReturn3.default)(this, (ProcessoSeletivoForm.__proto__ || (0, _getPrototypeOf2.default)(ProcessoSeletivoForm)).call(this));
+  
+      _this.state = {
+        schemas: []
+      };
+      _this.theurl = 'https://jcapi.azurewebsites.net/';
+      return _this;
+    }
+  
+    (0, _createClass3.default)(ProcessoSeletivoForm, [{
+      key: 'componentDidMount',
+      value: function componentDidMount() {
+        var _this2 = this;
+  
+        _axios2.default.get(this.theurl + "processoseletivo/").then(function (response) {
+          return _this2.setState({
+            schemas: response.data
+          });
+        }).catch(function (error) {
+          return console.log(error.response);
+        });
+      }
+    }, {
+      key: 'render',
+      value: function render() {
+        return (
+          // <FormControl componentClass="select" placeholder="select">
+          //   {this.state.schemas.map((e, key) => {
+          //     return <option key={key} value={e.id}>{e.descricao}</option>;
+          //   })}
+          // </FormControl>
+          _react2.default.createElement(
+            'div',
+            { className: 'table-responsive' },
+            _react2.default.createElement(
+              'table',
+              { className: 'table table-striped table-bordered table-hover' },
+              _react2.default.createElement(
+                'thead',
+                null,
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    '# '
+                  ),
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    'Processo Seletivo '
+                  ),
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    'Data In\xEDcio '
+                  ),
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    'Data Fim '
+                  ),
+                  _react2.default.createElement(
+                    'th',
+                    null,
+                    'Editar'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'tbody',
+                null,
+                this.state.schemas.map(function (e, key) {
+                  return _react2.default.createElement(
+                    'tr',
+                    { key: key },
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      e.id
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      e.descricao
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      e.dataInicio
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      e.dataFim
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        _reactBootstrap.Button,
+                        { href: '', onClick: function onClick(k) {
+                            var idProcesso = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : e.id;
+                            k.preventDefault();_history2.default.push({ pathname: '/psedit', search: '?query=abc' });
+                          } },
+                        _react2.default.createElement('i', { className: 'fa fa-pencil' }),
+                        ' Editar'
+                      )
+                    )
+                  );
+                })
+              )
+            )
+          )
+        );
+      }
+    }]);
+    return ProcessoSeletivoForm;
+  }(_react.Component);
+  
+  exports.default = ProcessoSeletivoForm;
+
+/***/ }),
 /* 190 */
 /***/ (function(module, exports) {
 
@@ -30245,6 +30415,179 @@ module.exports =
 
 /***/ }),
 /* 191 */
+/***/ (function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(11);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _edit = __webpack_require__(192);
+  
+  var _edit2 = _interopRequireDefault(_edit);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+  
+    path: '/psedit',
+  
+    action: function action() {
+      return _react2.default.createElement(_edit2.default, null);
+    }
+  };
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _getPrototypeOf = __webpack_require__(29);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(30);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(31);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(32);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(33);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(11);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _reactBootstrap = __webpack_require__(38);
+  
+  var _axios = __webpack_require__(190);
+  
+  var _axios2 = _interopRequireDefault(_axios);
+  
+  var _queryString = __webpack_require__(193);
+  
+  var _queryString2 = _interopRequireDefault(_queryString);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var ProcessoSeletivoEdit = function (_Component) {
+    (0, _inherits3.default)(ProcessoSeletivoEdit, _Component);
+  
+    function ProcessoSeletivoEdit(props) {
+      (0, _classCallCheck3.default)(this, ProcessoSeletivoEdit);
+  
+      var _this = (0, _possibleConstructorReturn3.default)(this, (ProcessoSeletivoEdit.__proto__ || (0, _getPrototypeOf2.default)(ProcessoSeletivoEdit)).call(this, props));
+  
+      _this.state = {
+        id: null,
+        schemas: {}
+      };
+  
+      console.log(props);
+      _this.theurl = 'https://jcapi.azurewebsites.net/';
+      return _this;
+    }
+  
+    (0, _createClass3.default)(ProcessoSeletivoEdit, [{
+      key: 'componentDidMount',
+      value: function componentDidMount() {
+        var _this2 = this;
+  
+        var values = _queryString2.default.parse(this.props.location.search);
+        console.log(values);
+        if (this.state.id !== null) {
+          _axios2.default.get(this.theurl + "processoseletivo/" + this.state.id).then(function (response) {
+            return _this2.setState({
+              schemas: response.data
+            });
+          }).catch(function (error) {
+            return console.log(error.response);
+          });
+        }
+      }
+    }, {
+      key: 'render',
+      value: function render() {
+        var _this3 = this;
+  
+        var _props = this.props,
+            router = _props.router,
+            params = _props.params,
+            location = _props.location,
+            routes = _props.routes;
+  
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-lg-12' },
+              _react2.default.createElement(
+                _reactBootstrap.PageHeader,
+                null,
+                'Editar Processo Seletivo ',
+                this.state.id,
+                ': ',
+                this.state.schemas.descricao
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              _reactBootstrap.Button,
+              { onClick: function onClick() {
+                  return console.log(_this3.state.id);
+                } },
+              'Click Me'
+            ),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement(
+              _reactBootstrap.Button,
+              { onClick: function onClick() {
+                  return console.log(_this3.props.location.search);
+                } },
+              'Click Me'
+            )
+          )
+        );
+      }
+    }]);
+    return ProcessoSeletivoEdit;
+  }(_react.Component);
+  
+  exports.default = ProcessoSeletivoEdit;
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports) {
+
+  module.exports = require("query-string");
+
+/***/ }),
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -30293,101 +30636,10 @@ module.exports =
       */
 
 /***/ }),
-/* 192 */
+/* 195 */
 /***/ (function(module, exports) {
 
   module.exports = require("./assets");
-
-/***/ }),
-/* 193 */
-/***/ (function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _getPrototypeOf = __webpack_require__(29);
-  
-  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-  
-  var _classCallCheck2 = __webpack_require__(30);
-  
-  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-  
-  var _createClass2 = __webpack_require__(31);
-  
-  var _createClass3 = _interopRequireDefault(_createClass2);
-  
-  var _possibleConstructorReturn2 = __webpack_require__(32);
-  
-  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-  
-  var _inherits2 = __webpack_require__(33);
-  
-  var _inherits3 = _interopRequireDefault(_inherits2);
-  
-  var _react = __webpack_require__(11);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _reactBootstrap = __webpack_require__(38);
-  
-  var _axios = __webpack_require__(190);
-  
-  var _axios2 = _interopRequireDefault(_axios);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  var ProcessoSeletivoForm = function (_Component) {
-    (0, _inherits3.default)(ProcessoSeletivoForm, _Component);
-  
-    function ProcessoSeletivoForm() {
-      (0, _classCallCheck3.default)(this, ProcessoSeletivoForm);
-  
-      var _this = (0, _possibleConstructorReturn3.default)(this, (ProcessoSeletivoForm.__proto__ || (0, _getPrototypeOf2.default)(ProcessoSeletivoForm)).call(this));
-  
-      _this.state = {
-        schemas: []
-      };
-      _this.theurl = 'https://jcapi.azurewebsites.net/';
-      return _this;
-    }
-  
-    (0, _createClass3.default)(ProcessoSeletivoForm, [{
-      key: 'componentDidMount',
-      value: function componentDidMount() {
-        var _this2 = this;
-  
-        _axios2.default.get(this.theurl + "processoseletivo/").then(function (response) {
-          return _this2.setState({
-            schemas: response.data
-          });
-        }).catch(function (error) {
-          return console.log(error.response);
-        });
-      }
-    }, {
-      key: 'render',
-      value: function render() {
-        return _react2.default.createElement(
-          _reactBootstrap.FormControl,
-          { componentClass: 'select', placeholder: 'select' },
-          this.state.schemas.map(function (e, key) {
-            return _react2.default.createElement(
-              'option',
-              { key: key, value: e.id },
-              e.descricao
-            );
-          })
-        );
-      }
-    }]);
-    return ProcessoSeletivoForm;
-  }(_react.Component);
-  
-  exports.default = ProcessoSeletivoForm;
 
 /***/ })
 /******/ ]);
