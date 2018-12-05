@@ -26,6 +26,7 @@ import typography from './dashboardPages/typography';
 import blank from './dashboardPages/blank';
 import processoseletivo from './dashboardPages/processoSeletivo';
 import processoseletivoEdit from './dashboardPages/processoSeletivo/edit';
+import processoseletivoCreate from './dashboardPages/processoSeletivo/create';
 import error from './error';
 
 import Header from '../components/Header';
@@ -71,6 +72,7 @@ export default [
       // place new routes before...
       // content,
       processoseletivoEdit,
+      processoseletivoCreate,
       error,
     ],
 

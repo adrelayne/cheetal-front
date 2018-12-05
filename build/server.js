@@ -971,6 +971,10 @@ module.exports =
   
   var _edit2 = _interopRequireDefault(_edit);
   
+  var _create = __webpack_require__(196);
+  
+  var _create2 = _interopRequireDefault(_create);
+  
   var _error = __webpack_require__(194);
   
   var _error2 = _interopRequireDefault(_error);
@@ -980,6 +984,16 @@ module.exports =
   var _Header2 = _interopRequireDefault(_Header);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  // Child routes
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
   
   exports.default = [{
     path: '/login',
@@ -1036,7 +1050,7 @@ module.exports =
   
     // place new routes before...
     // content,
-    _edit2.default, _error2.default],
+    _edit2.default, _create2.default, _error2.default],
   
     action: function action(_ref2) {
       var _this2 = this;
@@ -1131,16 +1145,6 @@ module.exports =
       }))();
     }
   }];
-  
-  // Child routes
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
 
 /***/ }),
 /* 28 */
@@ -30175,7 +30179,7 @@ module.exports =
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var title = 'ProcessoSeletivo';
+  var title = 'Processo Seletivo';
   
   function displayProcessoSeletivo(props, context) {
     context.setTitle(title);
@@ -30215,7 +30219,9 @@ module.exports =
             ),
             _react2.default.createElement(
               _reactBootstrap.Button,
-              { type: 'button', className: 'col-lg-3' },
+              { type: 'button', className: 'col-lg-3', onClick: function onClick() {
+                  return _history2.default.push('/pscriar');
+                } },
               'Criar Novo Processo Seletivo'
             )
           )
@@ -30491,6 +30497,9 @@ module.exports =
   
       _this.state = {
         id: getParameterByName('id'),
+        descricao: '',
+        dataInicio: null,
+        dataFim: null,
         schemas: {}
       };
       _this.theurl = 'https://jcapi.azurewebsites.net/';
@@ -30512,6 +30521,11 @@ module.exports =
             return console.log(error.response);
           });
         }
+      }
+    }, {
+      key: 'handleChangeDescricao',
+      value: function handleChangeDescricao(e) {
+        this.setState({ descricao: e.target.value });
       }
     }, {
       key: 'render',
@@ -30541,19 +30555,50 @@ module.exports =
             'div',
             { className: 'row' },
             _react2.default.createElement(
-              _reactBootstrap.Button,
-              { onClick: function onClick() {
-                  return console.log(_this3.state.id);
-                } },
-              'Click Me'
-            ),
-            _react2.default.createElement('br', null),
-            _react2.default.createElement(
-              _reactBootstrap.Button,
-              { onClick: function onClick() {
-                  return console.log(_this3.props.location.search);
-                } },
-              'Click Me'
+              'div',
+              { className: 'col-lg-12' },
+              _react2.default.createElement(
+                _reactBootstrap.Panel,
+                { header: _react2.default.createElement(
+                    'span',
+                    null,
+                    'Editar'
+                  ) },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'row' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-lg-6' },
+                    _react2.default.createElement(
+                      _reactBootstrap.Form,
+                      null,
+                      _react2.default.createElement(
+                        _reactBootstrap.FormGroup,
+                        { controlId: 'inputId' },
+                        _react2.default.createElement(
+                          _reactBootstrap.ControlLabel,
+                          null,
+                          'Descri\xE7\xE3o'
+                        ),
+                        _react2.default.createElement(_reactBootstrap.FormControl, {
+                          type: 'text',
+                          value: this.state.descricao,
+                          placeholder: this.state.schemas.descricao,
+                          onChange: this.handleChangeDescricao })
+                      )
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  _reactBootstrap.Button,
+                  { onClick: function onClick() {
+                      return console.log(_this3.state.id);
+                    } },
+                  'Click Me'
+                ),
+                _react2.default.createElement('br', null)
+              )
             )
           )
         );
@@ -30619,6 +30664,85 @@ module.exports =
 /***/ (function(module, exports) {
 
   module.exports = require("./assets");
+
+/***/ }),
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(11);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _create = __webpack_require__(198);
+  
+  var _create2 = _interopRequireDefault(_create);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+  
+    path: '/pscriar',
+  
+    action: function action() {
+      return _react2.default.createElement(_create2.default, null);
+    }
+  };
+
+/***/ }),
+/* 197 */,
+/* 198 */
+/***/ (function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(11);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _reactBootstrap = __webpack_require__(38);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var title = 'Criação de Processo Seletivo';
+  
+  function displayProcessoSeletivoCreate(props, context) {
+    context.setTitle(title);
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement(
+          'div',
+          { className: 'col-lg-12' },
+          _react2.default.createElement(
+            _reactBootstrap.PageHeader,
+            null,
+            'Cria\xE7\xE3o de Processo Seletivo'
+          )
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-lg-12' })
+      )
+    );
+  }
+  
+  displayProcessoSeletivoCreate.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
+  exports.default = displayProcessoSeletivoCreate;
 
 /***/ })
 /******/ ]);

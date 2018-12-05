@@ -1,12 +1,12 @@
 import React from 'react';
-import Edit from './edit';
+import Criar from './create';
 
 export default {
 
-  path: '/psedit',
+  path: '/pscriar',
 
   action() {
-    return <Edit />;
+    return <Criar />;
   },
 
 };

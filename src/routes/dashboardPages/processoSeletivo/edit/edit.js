@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import {
   PageHeader,
-  Button
+  Button,
+  FormControl,
+  FormGroup,
+  Form,
+  ControlLabel,
+  Panel
    } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -21,6 +26,9 @@ class ProcessoSeletivoEdit extends Component {
       super(props);
       this.state = {
         id: getParameterByName('id'),
+        descricao: '',
+        dataInicio: null,
+        dataFim: null,
         schemas: {}
       };
       this.theurl='https://jcapi.azurewebsites.net/';
@@ -40,6 +48,10 @@ class ProcessoSeletivoEdit extends Component {
           }
     }
 
+    handleChangeDescricao(e) {
+      this.setState({ descricao: e.target.value });
+    }
+
     render() {
         return (
           <div>
@@ -48,9 +60,26 @@ class ProcessoSeletivoEdit extends Component {
                 <PageHeader>Editar Processo Seletivo {this.state.id}: {this.state.schemas.descricao}</PageHeader>
               </div>
             </div>
-            <div className="row">
-              <Button onClick={() => console.log(this.state.id)}>Click Me</Button><br />
-              <Button onClick={() => console.log(this.props.location.search)}>Click Me</Button>
+              <div className="row">
+               <div className="col-lg-12">
+                <Panel header={<span>Editar</span>} >
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <Form>
+                        <FormGroup controlId="inputId">
+                          <ControlLabel>Descrição</ControlLabel>
+                          <FormControl
+                          type="text"
+                          value={this.state.descricao}
+                          placeholder={this.state.schemas.descricao}
+                          onChange={this.handleChangeDescricao} />
+                        </FormGroup>
+                      </Form>
+                    </div>
+                  </div>
+                  <Button onClick={() => console.log(this.state.id)}>Click Me</Button><br />
+                </Panel>
+              </div>
             </div>
           </div>
         )

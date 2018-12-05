@@ -10,7 +10,7 @@ import {
 import Processos from "../../../components/Utils/processoSeletivo/ProcessoSeletivoForm";
 import history from '../../../core/history';
 
-const title = 'ProcessoSeletivo';
+const title = 'Processo Seletivo';
 
 function displayProcessoSeletivo(props, context) {
   context.setTitle(title);
@@ -28,7 +28,7 @@ function displayProcessoSeletivo(props, context) {
             <FormGroup controlId="formControlsSelect">
                 <Processos />
             </FormGroup>
-            <Button type="button" className="col-lg-3">Criar Novo Processo Seletivo</Button>
+            <Button type="button" className="col-lg-3" onClick={() => history.push('/pscriar')}>Criar Novo Processo Seletivo</Button>
           </ Panel>
         </div>
       </div>
