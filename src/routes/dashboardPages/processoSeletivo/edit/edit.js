@@ -4,25 +4,30 @@ import {
   Button
    } from 'react-bootstrap';
 import axios from 'axios';
-import queryString from 'query-string'
 
+
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 
 class ProcessoSeletivoEdit extends Component {
     constructor (props) {
       super(props);
       this.state = {
-        id: null,
+        id: getParameterByName('id'),
         schemas: {}
       };
-
-      
-      console.log(props);
       this.theurl='https://jcapi.azurewebsites.net/';
     }
 
     componentDidMount() {
-      const values = queryString.parse(this.props.location.search)
-      console.log(values)
+      console.log(this.state.id);
       if (this.state.id !== null) {
         axios
           .get(this.theurl + "processoseletivo/" + this.state.id)
@@ -36,7 +41,6 @@ class ProcessoSeletivoEdit extends Component {
     }
 
     render() {
-      const { router, params, location, routes } = this.props
         return (
           <div>
             <div className="row">

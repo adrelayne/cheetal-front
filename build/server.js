@@ -30211,11 +30211,6 @@ module.exports =
             _react2.default.createElement(
               _reactBootstrap.FormGroup,
               { controlId: 'formControlsSelect' },
-              _react2.default.createElement(
-                _reactBootstrap.ControlLabel,
-                null,
-                'Select'
-              ),
               _react2.default.createElement(_ProcessoSeletivoForm2.default, null)
             ),
             _react2.default.createElement(
@@ -30309,94 +30304,86 @@ module.exports =
     }, {
       key: 'render',
       value: function render() {
-        return (
-          // <FormControl componentClass="select" placeholder="select">
-          //   {this.state.schemas.map((e, key) => {
-          //     return <option key={key} value={e.id}>{e.descricao}</option>;
-          //   })}
-          // </FormControl>
+        return _react2.default.createElement(
+          'div',
+          { className: 'table-responsive' },
           _react2.default.createElement(
-            'div',
-            { className: 'table-responsive' },
+            'table',
+            { className: 'table table-striped table-bordered table-hover' },
             _react2.default.createElement(
-              'table',
-              { className: 'table table-striped table-bordered table-hover' },
+              'thead',
+              null,
               _react2.default.createElement(
-                'thead',
+                'tr',
                 null,
                 _react2.default.createElement(
-                  'tr',
+                  'th',
                   null,
-                  _react2.default.createElement(
-                    'th',
-                    null,
-                    '# '
-                  ),
-                  _react2.default.createElement(
-                    'th',
-                    null,
-                    'Processo Seletivo '
-                  ),
-                  _react2.default.createElement(
-                    'th',
-                    null,
-                    'Data In\xEDcio '
-                  ),
-                  _react2.default.createElement(
-                    'th',
-                    null,
-                    'Data Fim '
-                  ),
-                  _react2.default.createElement(
-                    'th',
-                    null,
-                    'Editar'
-                  )
+                  '# '
+                ),
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Processo Seletivo '
+                ),
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Data In\xEDcio '
+                ),
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Data Fim '
+                ),
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Editar'
                 )
-              ),
-              _react2.default.createElement(
-                'tbody',
-                null,
-                this.state.schemas.map(function (e, key) {
-                  return _react2.default.createElement(
-                    'tr',
-                    { key: key },
-                    _react2.default.createElement(
-                      'td',
-                      null,
-                      e.id
-                    ),
-                    _react2.default.createElement(
-                      'td',
-                      null,
-                      e.descricao
-                    ),
-                    _react2.default.createElement(
-                      'td',
-                      null,
-                      e.dataInicio
-                    ),
-                    _react2.default.createElement(
-                      'td',
-                      null,
-                      e.dataFim
-                    ),
-                    _react2.default.createElement(
-                      'td',
-                      null,
-                      _react2.default.createElement(
-                        _reactBootstrap.Button,
-                        { href: '', onClick: function onClick(k) {
-                            var idProcesso = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : e.id;
-                            k.preventDefault();_history2.default.push({ pathname: '/psedit', search: '?query=abc' });
-                          } },
-                        _react2.default.createElement('i', { className: 'fa fa-pencil' }),
-                        ' Editar'
-                      )
-                    )
-                  );
-                })
               )
+            ),
+            _react2.default.createElement(
+              'tbody',
+              null,
+              this.state.schemas.map(function (e, key) {
+                return _react2.default.createElement(
+                  'tr',
+                  { key: key },
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    e.id
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    e.descricao
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    e.dataInicio
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    e.dataFim
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      _reactBootstrap.Button,
+                      { href: '', onClick: function onClick(k) {
+                          k.preventDefault();_history2.default.push({ pathname: '/psedit', search: '?id=' + e.id });
+                        } },
+                      _react2.default.createElement('i', { className: 'fa fa-pencil' }),
+                      ' Editar'
+                    )
+                  )
+                );
+              })
             )
           )
         );
@@ -30482,11 +30469,17 @@ module.exports =
   
   var _axios2 = _interopRequireDefault(_axios);
   
-  var _queryString = __webpack_require__(193);
-  
-  var _queryString2 = _interopRequireDefault(_queryString);
-  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
   
   var ProcessoSeletivoEdit = function (_Component) {
     (0, _inherits3.default)(ProcessoSeletivoEdit, _Component);
@@ -30497,11 +30490,9 @@ module.exports =
       var _this = (0, _possibleConstructorReturn3.default)(this, (ProcessoSeletivoEdit.__proto__ || (0, _getPrototypeOf2.default)(ProcessoSeletivoEdit)).call(this, props));
   
       _this.state = {
-        id: null,
+        id: getParameterByName('id'),
         schemas: {}
       };
-  
-      console.log(props);
       _this.theurl = 'https://jcapi.azurewebsites.net/';
       return _this;
     }
@@ -30511,8 +30502,7 @@ module.exports =
       value: function componentDidMount() {
         var _this2 = this;
   
-        var values = _queryString2.default.parse(this.props.location.search);
-        console.log(values);
+        console.log(this.state.id);
         if (this.state.id !== null) {
           _axios2.default.get(this.theurl + "processoseletivo/" + this.state.id).then(function (response) {
             return _this2.setState({
@@ -30527,12 +30517,6 @@ module.exports =
       key: 'render',
       value: function render() {
         var _this3 = this;
-  
-        var _props = this.props,
-            router = _props.router,
-            params = _props.params,
-            location = _props.location,
-            routes = _props.routes;
   
         return _react2.default.createElement(
           'div',
@@ -30581,12 +30565,7 @@ module.exports =
   exports.default = ProcessoSeletivoEdit;
 
 /***/ }),
-/* 193 */
-/***/ (function(module, exports) {
-
-  module.exports = require("query-string");
-
-/***/ }),
+/* 193 */,
 /* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 

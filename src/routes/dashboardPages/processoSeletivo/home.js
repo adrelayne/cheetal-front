@@ -26,7 +26,6 @@ function displayProcessoSeletivo(props, context) {
           <Panel header={<span>Consulta</span> } >
           {/* <Button type="submit" onClick={(e) => ProcessoOptions()}>Reload</Button> */}
             <FormGroup controlId="formControlsSelect">
-                <ControlLabel>Select</ControlLabel>
                 <Processos />
             </FormGroup>
             <Button type="button" className="col-lg-3">Criar Novo Processo Seletivo</Button>

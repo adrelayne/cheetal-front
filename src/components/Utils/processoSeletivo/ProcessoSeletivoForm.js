@@ -28,11 +28,6 @@ class ProcessoSeletivoForm extends Component {
 
     render() {
         return (
-          // <FormControl componentClass="select" placeholder="select">
-          //   {this.state.schemas.map((e, key) => {
-          //     return <option key={key} value={e.id}>{e.descricao}</option>;
-          //   })}
-          // </FormControl>
           <div className="table-responsive">
             <table className="table table-striped table-bordered table-hover">
               <thead>
@@ -52,7 +47,7 @@ class ProcessoSeletivoForm extends Component {
                     <td>{e.descricao}</td>
                     <td>{e.dataInicio}</td>
                     <td>{e.dataFim}</td>
-                    <td><Button href="" onClick={(k, idProcesso = e.id) => { k.preventDefault(); history.push({pathname: '/psedit', search: '?query=abc'}); }}><i className="fa fa-pencil" /> Editar</Button></td>
+                    <td><Button href="" onClick={(k) => { k.preventDefault(); history.push({pathname: '/psedit', search: '?id=' + e.id}); }}><i className="fa fa-pencil" /> Editar</Button></td>
                   </tr>)
                 })}
               </tbody>
