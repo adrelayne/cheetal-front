@@ -16,7 +16,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Login.css';
 import history from '../../core/history';
 
-const title = 'Log In';
+const title = 'Login';
 
 
 function submitHandler(e) {
@@ -29,11 +29,10 @@ function Login(props, context) {
   return (
     <div className="col-md-4 col-md-offset-4">
       <div className="text-center">
-        <h1 className="login-brand-text">SB Admin React</h1>
-        <h3 className="text-muted">Created by <a href="http://startreact.com">StartReact.com</a> team</h3>
+        <h1 className="login-brand-text">Cheetal</h1>
       </div>
 
-      <Panel header={<h3>Please Sign In</h3>} className="login-panel">
+      <Panel header={<h3>Login</h3>} className="login-panel">
 
         <form role="form" onSubmit={(e) => { submitHandler(e); }}>
           <fieldset>
@@ -41,7 +40,7 @@ function Login(props, context) {
               <FormControl
                 type="text"
                 className="form-control"
-                placeholder="Username"
+                placeholder="Email"
                 name="name"
               />
             </div>
@@ -49,12 +48,12 @@ function Login(props, context) {
             <div className="form-group">
               <FormControl
                 className="form-control"
-                placeholder="Password"
+                placeholder="Senha"
                 type="password"
                 name="password"
               />
             </div>
-            <Checkbox label="Remember Me" > Remember Me </Checkbox>
+            <Checkbox label="Remember Me" > Lembrar-me </Checkbox>
             <Button type="submit" bsSize="large" bsStyle="success" block>Login</Button>
           </fieldset>
         </form>

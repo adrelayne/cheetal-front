@@ -1,7 +1,12 @@
 import React, { PropTypes } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import {
+  FormControl,
+  ControlLabel,
+  Button,
+  Panel,
+} from 'react-bootstrap';
+import reduxForm from 'redux-form';
 import Select from 'react-select';
-import ControlLabel from 'react-bootstrap';
 import endereco from '.';
 
 const validate = values => {
@@ -47,39 +52,46 @@ const options = [
 
 const title = 'Endereço';
 
+function submitHandler(e) {
+  e.preventDefault();
+  history.push('/inscricao4');
+}
+
 function Endereco(props, context) {
   context.setTitle(title);
   return (
-    <div className="card">
-      <div className="header">
-        <h4>Endereço</h4>
+    <div className="col-md-4 col-md-offset-4">
+      <div className="text-center">
+        <h1 className="login-brand-text">Cheetal</h1>
       </div>
-      <div className="content">
-        <form onSubmit>
+
+      <Panel header={<h3>Login</h3>}>
+
+        <form role="form" onSubmit={(e) => { submitHandler(e); }}>
           <div className="form-group">
             <ControlLabel>Logradouro *</ControlLabel>
-            <Field
+            <FormControl
               name="logradouro"
               type="text"
             />
           </div>
           <div className="form-group">
             <ControlLabel>Número *</ControlLabel>
-            <Field
+            <FormControl
               name="numero"
               type="text"
             />
           </div>
           <div className="form-group">
             <ControlLabel>Complemento</ControlLabel>
-            <Field
+            <FormControl
               name="complemento"
               type="text"
             />
           </div>
           <div className="form-group">
             <ControlLabel>Cidade*</ControlLabel>
-            <Field
+            <FormControl
               name="complemento "
               type="text"
             />
@@ -90,14 +102,14 @@ function Endereco(props, context) {
           </div>
           <div className="form-group">
             <ControlLabel>CEP*</ControlLabel>
-            <Field
+            <FormControl
               name="cep"
               type="text"
             />
           </div>
-          <button type="submit" className="btn btn-fill btn-info">Concluir</button>
+          <Button type="submit" className="btn btn-fill btn-info">Concluir</Button>
         </form>
-      </div>
+      </Panel>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import ComoConheceu from './ComoConheceu';
 
 export default {
 
-  path: '/inscricao1',
+  path: '/inscricao',
 
   action() {
     return <ComoConheceu />;

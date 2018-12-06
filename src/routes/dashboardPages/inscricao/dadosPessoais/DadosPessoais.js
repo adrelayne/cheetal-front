@@ -1,6 +1,11 @@
 import React, { PropTypes } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import ControlLabel from 'react-bootstrap';
+import reduxForm from 'redux-form';
+import {
+  FormControl,
+  ControlLabel,
+  Button,
+  Panel,
+} from 'react-bootstrap';
 
 const validate = values => {
   const errors = {};
@@ -24,46 +29,52 @@ const validate = values => {
 
 const title = 'Dados Pessoais';
 
+function submitHandler(e) {
+  e.preventDefault();
+  history.push('/inscricao3');
+}
+
 function dadosPessoais(props, context) {
   context.setTitle(title);
   return (
-    <div className="card">
-      <div className="header">
-        <h4>Dados Pessoais</h4>
+    <div className="col-md-4 col-md-offset-4">
+      <div className="text-center">
+        <h1 className="login-brand-text">Cheetal</h1>
       </div>
-      <div className="content">
-        <form onSubmit>
+
+      <Panel header={<h3>Dados Pessoais</h3>}>
+        <form role="form" onSubmit={(e) => { submitHandler(e); }}>
           <div className="form-group">
             <ControlLabel>Nome Completo *</ControlLabel>
-            <Field
+            <FormControl
               name="nome"
               type="text"
             />
           </div>
           <div className="form-group">
             <ControlLabel>Email *</ControlLabel>
-            <Field
+            <FormControl
               name="email"
               type="email"
             />
           </div>
           <div className="form-group">
             <ControlLabel>Data de Nascimento*</ControlLabel>
-            <Field
+            <FormControl
               name="date"
               type="date"
             />
           </div>
           <div className="form-group">
             <ControlLabel>RG *</ControlLabel>
-            <Field
+            <FormControl
               name="rg"
               type="text"
             />
           </div>
           <div className="form-group">
             <ControlLabel>CPF *</ControlLabel>
-            <Field
+            <FormControl
               name="cpf"
               type="text"
             />
@@ -71,19 +82,19 @@ function dadosPessoais(props, context) {
           <div className="form-group">
             <ControlLabel col-md-3>Sexo *</ControlLabel>
             <div className="col-md-9 checkbox-group">
-              <Field
+              <FormControl
                 name="radioGroupSex"
                 type="radio"
                 label="Masculino"
                 value="masculino"
               />
-              <Field
+              <FormControl
                 name="radioGroupSex"
                 type="radio"
                 label="Feminino"
                 value="feminino"
               />
-              <Field
+              <FormControl
                 name="radioGroupSex"
                 type="radio"
                 label="Não declarado"
@@ -93,11 +104,11 @@ function dadosPessoais(props, context) {
           </div>
           <div className="form-group">
             <ControlLabel>Nome da Mãe *</ControlLabel>
-            <Field
+            <FormControl
               name="mae"
               type="text"
             />
-            <Field
+            <FormControl
               name="radioMae"
               type="radio"
               label="Não declarado"
@@ -106,11 +117,11 @@ function dadosPessoais(props, context) {
           </div>
           <div className="form-group">
             <ControlLabel>Nome do Pai *</ControlLabel>
-            <Field
+            <FormControl
               name="pai"
               type="text"
             />
-            <Field
+            <FormControl
               name="radioPai"
               type="radio"
               label="Não declarado"
@@ -119,19 +130,19 @@ function dadosPessoais(props, context) {
           </div>
           <div className="form-group">
             <ControlLabel>Telefone *</ControlLabel>
-            <Field
+            <FormControl
               name="telefone"
               type="text"
             />
             <ControlLabel>Celular *</ControlLabel>
-            <Field
+            <FormControl
               name="celular"
               type="text"
             />
           </div>
-          <button type="submit" className="btn btn-info">Próximo</button>
+          <Button type="submit" className="btn btn-info">Próximo</Button>
         </form>
-      </div>
+      </Panel>
     </div>
   );
 }

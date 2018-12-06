@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import ControlLabel from 'react-bootstrap';
+import reduxForm from 'redux-form';
+import {
+  FormControl,
+  Button,
+  Panel,
+} from 'react-bootstrap';
 
 const validate = values => {
   const errors = {};
@@ -14,25 +18,34 @@ const validate = values => {
 
 const title = 'Criar senha';
 
+function submitHandler(e) {
+  e.preventDefault();
+  history.push('/Login');
+}
+
 function criarSenha(props, context) {
   context.setTitle(title);
   return (
-    <div className="card">
-      <div className="header">
-        <h4>Criar senha</h4>
+    <div className="col-md-4 col-md-offset-4">
+      <div className="text-center">
+        <h1 className="login-brand-text">Cheetal</h1>
       </div>
-      <div className="content">
-        <form onSubmit>
-          <div className="form-group">
-            <ControlLabel>Senha *</ControlLabel>
-            <Field
-              name="password"
-              type="password"
-            />
-          </div>
-          <button type="submit" className="btn btn-fill btn-info">Próximo</button>
+
+      <Panel header={<h3>Criar senha</h3>}>
+        <form role="form" onSubmit={(e) => { submitHandler(e); }}>
+          <fieldset>
+            <div className="form-group">
+              <FormControl
+                className="form-control"
+                placeholder="Senha"
+                type="password"
+                name="password"
+              />
+            </div>
+            <Button type="submit" bsSize="large" bsStyle="success" block>Cadastrar</Button>
+          </fieldset>
         </form>
-      </div>
+      </Panel>
     </div>
   );
 }

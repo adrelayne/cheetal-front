@@ -1,41 +1,52 @@
 import React, { PropTypes } from 'react';
+import Select from 'react-select';
 import {
   FormControl,
-  FormGroup,
-  ControlLabel,
-   } from 'react-bootstrap';
+  Button,
+  Panel,
+} from 'react-bootstrap';
+
+const options = [
+  { value: 'ios', label: 'IOS' },
+  { value: 'proa', label: 'PROA' },
+  { value: 'paulaSouza', label: 'Paula Souza' },
+  { value: 'google', label: 'Google' },
+  { value: 'facebook', label: 'Facebook' },
+  { value: 'instagram', label: 'Instagram' },
+  { value: 'amigos', label: 'Amigos/Familiares' },
+  { value: 'alunos', label: 'Alunos' },
+  { value: 'intitutoTivit', label: 'Instituto TIVIT' },
+  { value: 'outros', label: 'Outros' },
+];
+
 
 const title = 'Como Conheceu o projeto Geração Futura?';
+
+function submitHandler(e) {
+  e.preventDefault();
+  history.push('/inscricao2');
+}
 
 function comoConheceu(props, context) {
   context.setTitle(title);
   return (
-    <div className="card">
-      <div className="header">
-        <h4>Como Conheceu o projeto Geração Futura?</h4>
+    <div className="col-md-4 col-md-offset-4">
+      <div className="text-center">
+        <h1 className="login-brand-text">Cheetal</h1>
       </div>
-      <div className="content">
-        <form onSubmit>
-          <div className="form-group">
-            <FormGroup controlId="formControlsSelect">
-              <ControlLabel>Selecione</ControlLabel>
-              <FormControl componentClass="select" placeholder="**SELECIONE**">
-                <option value="ios">IOS</option>
-                <option value="proa">PROA</option>
-                <option value="paulaSouza">Paula Souza</option>
-                <option value="google">Google</option>
-                <option value="facebook">Facebook</option>
-                <option value="instagram">Instagram</option>
-                <option value="amigos">Amigos/Familiares</option>
-                <option value="Alunos">Alunos</option>
-                <option value="intitutoTivit">Instituto TIVIT</option>
-                <option value="outros">Outros</option>
-              </FormControl>
-            </FormGroup>
-            <button type="submit" className="btn btn-fill btn-info btn-label-right">Próximo</button>
-          </div>
+
+      <Panel header={<h3>Como Conheceu o projeto Geração Futura?</h3>}>
+        <form role="form" onSubmit={(e) => { submitHandler(e); }}>
+          <fieldset>
+            <div className="form-group">
+              <Select options={options} />
+              <Button type="submit" className="btn btn-fill btn-info btn-label-right">
+                Próximo
+              </Button>
+            </div>
+          </fieldset>
         </form>
-      </div>
+      </Panel>
     </div>
   );
 }
