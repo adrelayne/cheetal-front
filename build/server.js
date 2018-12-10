@@ -116,7 +116,7 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(195);
+  var _assets = __webpack_require__(196);
   
   var _assets2 = _interopRequireDefault(_assets);
   
@@ -971,11 +971,15 @@ module.exports =
   
   var _edit2 = _interopRequireDefault(_edit);
   
-  var _create = __webpack_require__(196);
+  var _create = __webpack_require__(193);
   
   var _create2 = _interopRequireDefault(_create);
   
-  var _error = __webpack_require__(194);
+  var _teste = __webpack_require__(198);
+  
+  var _teste2 = _interopRequireDefault(_teste);
+  
+  var _error = __webpack_require__(195);
   
   var _error2 = _interopRequireDefault(_error);
   
@@ -984,16 +988,6 @@ module.exports =
   var _Header2 = _interopRequireDefault(_Header);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  // Child routes
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
   
   exports.default = [{
     path: '/login',
@@ -1046,7 +1040,7 @@ module.exports =
     // contact,
     _tables2.default, _buttons2.default, _flotCharts2.default, _forms2.default, _grid2.default, _icons2.default, _morrisjsCharts2.default, _notification2.default, _panelWells2.default, _typography2.default,
     // register,
-    _blank2.default, _processoSeletivo2.default,
+    _blank2.default, _processoSeletivo2.default, _teste2.default,
   
     // place new routes before...
     // content,
@@ -1145,6 +1139,16 @@ module.exports =
       }))();
     }
   }];
+  
+  // Child routes
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
 
 /***/ }),
 /* 28 */
@@ -30610,8 +30614,85 @@ module.exports =
   exports.default = ProcessoSeletivoEdit;
 
 /***/ }),
-/* 193 */,
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(11);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _create = __webpack_require__(194);
+  
+  var _create2 = _interopRequireDefault(_create);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  exports.default = {
+  
+    path: '/pscriar',
+  
+    action: function action() {
+      return _react2.default.createElement(_create2.default, null);
+    }
+  };
+
+/***/ }),
 /* 194 */
+/***/ (function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(11);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _reactBootstrap = __webpack_require__(38);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var title = 'Criação de Processo Seletivo';
+  
+  function displayProcessoSeletivoCreate(props, context) {
+    context.setTitle(title);
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement(
+          'div',
+          { className: 'col-lg-12' },
+          _react2.default.createElement(
+            _reactBootstrap.PageHeader,
+            null,
+            'Cria\xE7\xE3o de Processo Seletivo'
+          )
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'col-lg-12' })
+      )
+    );
+  }
+  
+  displayProcessoSeletivoCreate.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
+  exports.default = displayProcessoSeletivoCreate;
+
+/***/ }),
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -30660,39 +30741,10 @@ module.exports =
       */
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports) {
 
   module.exports = require("./assets");
-
-/***/ }),
-/* 196 */
-/***/ (function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _react = __webpack_require__(11);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _create = __webpack_require__(198);
-  
-  var _create2 = _interopRequireDefault(_create);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  exports.default = {
-  
-    path: '/pscriar',
-  
-    action: function action() {
-      return _react2.default.createElement(_create2.default, null);
-    }
-  };
 
 /***/ }),
 /* 197 */,
@@ -30709,40 +30761,324 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _reactBootstrap = __webpack_require__(38);
+  var _teste = __webpack_require__(200);
+  
+  var _teste2 = _interopRequireDefault(_teste);
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var title = 'Criação de Processo Seletivo';
+  //import ProcessoSeletivo from '../processoSeletivo/'
+  exports.default = {
+    path: '/teste',
+    action: function action() {
+      return _react2.default.createElement(_teste2.default, null);
+    }
+  };
+
+/***/ }),
+/* 199 */,
+/* 200 */
+/***/ (function(module, exports, __webpack_require__) {
+
+  'use strict';
   
-  function displayProcessoSeletivoCreate(props, context) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(11);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _reactBootstrap = __webpack_require__(38);
+  
+  var _reactSelect = __webpack_require__(202);
+  
+  var _reactSelect2 = _interopRequireDefault(_reactSelect);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  // const validate = values => {
+  //   const errors = {};
+  //   if (!values.cep) {
+  //     errors.cep = 'CEP é necessário';
+  //   } else if (values.cep.lenght !== 8) {
+  //     errors.cep = 'CEP inválido';
+  //   }
+  //   return errors;
+  // };
+  
+  var title = 'Endereço';
+  //import reduxForm from 'redux-form';
+  
+  
+  function Endereco(props, context) {
     context.setTitle(title);
     return _react2.default.createElement(
       'div',
-      null,
+      { className: 'col-md-4 col-md-offset-4' },
       _react2.default.createElement(
         'div',
-        { className: 'row' },
+        { className: 'text-center' },
         _react2.default.createElement(
-          'div',
-          { className: 'col-lg-12' },
-          _react2.default.createElement(
-            _reactBootstrap.PageHeader,
-            null,
-            'Cria\xE7\xE3o de Processo Seletivo'
-          )
+          'h1',
+          { className: 'login-brand-text' },
+          'Inscri\xE7\xE3o Vestibular'
         )
       ),
       _react2.default.createElement(
-        'div',
-        { className: 'row' },
-        _react2.default.createElement('div', { className: 'col-lg-12' })
+        _reactBootstrap.Panel,
+        { header: _react2.default.createElement(
+            'h3',
+            null,
+            'Endere\xE7o'
+          ) },
+        _react2.default.createElement(
+          'form',
+          { role: 'form', onSubmit: function onSubmit(e) {
+              submitHandler(e);
+            } },
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              _reactBootstrap.ControlLabel,
+              null,
+              'Logradouro *'
+            ),
+            _react2.default.createElement(_reactBootstrap.FormControl, {
+              name: 'logradouro',
+              type: 'text'
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              _reactBootstrap.ControlLabel,
+              null,
+              'N\xFAmero *'
+            ),
+            _react2.default.createElement(_reactBootstrap.FormControl, {
+              name: 'numero',
+              type: 'text'
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              _reactBootstrap.ControlLabel,
+              null,
+              'Complemento'
+            ),
+            _react2.default.createElement(_reactBootstrap.FormControl, {
+              name: 'complemento',
+              type: 'text'
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              _reactBootstrap.ControlLabel,
+              null,
+              'Cidade*'
+            ),
+            _react2.default.createElement(_reactBootstrap.FormControl, {
+              name: 'complemento ',
+              type: 'text'
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              _reactBootstrap.FormGroup,
+              { controlId: 'formControlsEstado' },
+              _react2.default.createElement(
+                _reactBootstrap.FormControl,
+                { componentClass: 'select' },
+                _react2.default.createElement(
+                  'option',
+                  { value: 'AC' },
+                  'Acre'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'AL' },
+                  'Alagoas'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'AP' },
+                  'Amap\xE1'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'AM' },
+                  'Amazonas'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'BA' },
+                  'Bahia'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'CE' },
+                  'Cear\xE1'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'DF' },
+                  'Distrito Federal'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'ES' },
+                  'Esp\xEDrito Santo'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'GO' },
+                  'Goi\xE1s'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'MA' },
+                  'Maranh\xE3o'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'MT' },
+                  'Mato Grosso'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'MS' },
+                  'Mato Grosso do Sul'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'MG' },
+                  'Minas Gerais'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'PA' },
+                  'Par\xE1'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'PB' },
+                  'Para\xEDba'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'PR' },
+                  'Paran\xE1'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'PE' },
+                  'Pernambuco'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'PI' },
+                  'Piau\xED'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'RJ' },
+                  'Rio de Janeiro'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'RN' },
+                  'Rio Grande do Norte'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'RS' },
+                  'Rio Grande do Sul'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'RO' },
+                  'Rond\xF4nia'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'RR' },
+                  'Roraima'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'SC' },
+                  'Santa Catarina'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'SP' },
+                  'S\xE3o Paulo'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'SE' },
+                  'Sergipe'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'TO' },
+                  'Tocantins'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'ES' },
+                  'Estrangeiro'
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              _reactBootstrap.ControlLabel,
+              null,
+              'CEP*'
+            ),
+            _react2.default.createElement(_reactBootstrap.FormControl, {
+              name: 'cep',
+              type: 'text'
+            })
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Button,
+            { type: 'submit', className: 'btn btn-fill btn-info' },
+            'Concluir'
+          )
+        )
       )
     );
   }
   
-  displayProcessoSeletivoCreate.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
-  exports.default = displayProcessoSeletivoCreate;
+  endereco.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
+  exports.default = Endereco;
+  
+  // export default reduxForm({
+  //   form: 'endereco',
+  //   validate,
+  // })(Endereco);
+
+/***/ }),
+/* 201 */,
+/* 202 */
+/***/ (function(module, exports) {
+
+  module.exports = require("react-select");
 
 /***/ })
 /******/ ]);
