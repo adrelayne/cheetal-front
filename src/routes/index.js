@@ -27,6 +27,11 @@ import blank from './dashboardPages/blank';
 import processoseletivo from './dashboardPages/processoSeletivo';
 import processoseletivoEdit from './dashboardPages/processoSeletivo/edit';
 import processoseletivoCreate from './dashboardPages/processoSeletivo/create';
+import Publico from './dashboardPages/publico';
+import DadosPessoais from './dashboardPages/dadosPessoais';
+import Endereco from './dashboardPages/endereco';
+import CriarSenha from './dashboardPages/criarSenha';
+import inscricao from './dashboardPages/teste';
 import error from './error';
 
 import Header from '../components/Header';
@@ -68,6 +73,10 @@ export default [
       // register,
       blank,
       processoseletivo,
+      DadosPessoais,
+      Endereco,
+      Publico,
+      CriarSenha,
 
       // place new routes before...
       // content,
