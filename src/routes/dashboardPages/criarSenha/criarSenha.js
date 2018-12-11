@@ -12,7 +12,7 @@ function CriarSenha(props, context) {
   return (
     <div className="col-md-4 col-md-offset-4">
       <div className="text-center">
-        <h1 className="login-brand-text">Cheetal</h1>
+        <h1 className="login-brand-text">Inscrição Vestibular</h1>
       </div>
 
       <Panel header={<h3>Criar senha</h3>}>

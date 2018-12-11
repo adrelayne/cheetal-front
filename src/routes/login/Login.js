@@ -16,7 +16,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Login.css';
 import history from '../../core/history';
 
-const title = 'Log In';
+const title = 'Login';
 
 
 function submitHandler(e) {

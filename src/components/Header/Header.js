@@ -21,7 +21,8 @@ import history from '../../core/history';
 import $ from "jquery";
 import Sidebar from '../Sidebar';
 
-const logo = require('./logo.png');
+const logo = require('./logo_bandtec_ds_azul.png');
+//const logo = require('./logo.png');
 
 function Header() {
   return (
@@ -29,9 +30,7 @@ function Header() {
       <Navbar fluid={true}  style={ {margin: 0} }>
           <Brand>
             <span>
-              <img src={logo} alt="Start React" title="Start React" />
-              <span>&nbsp;SB Admin React - </span>
-                <a href="http://startreact.com/" title="Start React" rel="home">StartReact.com</a>
+              <img src={logo} alt="Bandtec" title="Bandtec" />
                 <button type="button" className="navbar-toggle" onClick={() => {toggleMenu();}} style={{position: 'absolute', right: 0, top: 0}}>
                   <span className="sr-only">Toggle navigation</span>
                   <span className="icon-bar"></span>
