@@ -26,10 +26,9 @@ function CriarSenha(props, context) {
                 name="password"
               />
             </div>
-            <Button
-              type="submit" className="btn btn-info"
-              onClick={(event) => { history.push('/login'); }}
-            >Cadastrar</Button>
+            <Button type="submit" className="btn btn-info" href="/login">
+                Cadastrar
+          </Button>
           </fieldset>
         </form>
       </Panel>

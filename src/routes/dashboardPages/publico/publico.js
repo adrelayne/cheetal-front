@@ -5,7 +5,7 @@ import {
     Button,
   } from 'react-bootstrap';
 
-const title = 'Publico';
+const title = 'Inscrição Vestibular - Bandtec';
 
 function Publico(props, context) {
   context.setTitle(title);
@@ -32,10 +32,9 @@ function Publico(props, context) {
               </FormControl>
             </FormGroup>
           </div>
-          <Button
-            type="submit" className="btn btn-info"
-            onClick={(event) => { history.push('/DadosPessoais'); }}
-          >Próximo</Button>
+          <Button type="submit" className="btn btn-info" href="/DadosPessoais">
+                Próximo
+          </Button>
         </form>
       </div>
     </div>

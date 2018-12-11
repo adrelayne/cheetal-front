@@ -17,7 +17,7 @@ import {
 //   return errors;
 // };
 
-const title = 'Endereço';
+const title = 'Inscrição Vestibular - Bandtec';
 
 function Endereco(props, context) {
   context.setTitle(title);
@@ -100,10 +100,9 @@ function Endereco(props, context) {
               type="text"
             />
           </div>
-          <Button
-            type="submit" className="btn btn-info"
-            onClick={(event) => { history.push('/criarSenha'); }}
-          >Próximo</Button>
+          <Button type="submit" className="btn btn-info" href="/criarSenha">
+                Próximo
+          </Button>
         </form>
       </Panel>
     </div>
