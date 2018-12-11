@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import {
     FormGroup,
     FormControl,
+    Button,
   } from 'react-bootstrap';
 
 const title = 'Publico';
@@ -14,7 +15,7 @@ function Publico(props, context) {
         <h4>Como Conheceu o projeto Geração Futura?</h4>
       </div>
       <div className="content">
-        <form onSubmit>
+        <form role="form">
           <div className="form-group">
             <FormGroup controlId="formControlsPublico">
               <FormControl componentClass="select">
@@ -31,7 +32,10 @@ function Publico(props, context) {
               </FormControl>
             </FormGroup>
           </div>
-          <button type="submit" className="btn btn-fill btn-info btn-label-right" onClick = {(event) => { history.push('/DadosPessoais');}}>Próximo</button>
+          <Button
+            type="submit" className="btn btn-info"
+            onClick={(event) => { history.push('/DadosPessoais'); }}
+          >Próximo</Button>
         </form>
       </div>
     </div>

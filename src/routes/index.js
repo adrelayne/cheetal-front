@@ -31,7 +31,6 @@ import Publico from './dashboardPages/publico';
 import DadosPessoais from './dashboardPages/dadosPessoais';
 import Endereco from './dashboardPages/endereco';
 import CriarSenha from './dashboardPages/criarSenha';
-import inscricao from './dashboardPages/teste';
 import error from './error';
 
 import Header from '../components/Header';

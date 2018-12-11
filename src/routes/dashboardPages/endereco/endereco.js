@@ -29,7 +29,7 @@ function Endereco(props, context) {
 
       <Panel header={<h3>Endereço</h3>}>
 
-        <form role="form" onSubmit={(e) => { submitHandler(e); }}>
+        <form role="form">
           <div className="form-group">
             <ControlLabel>Logradouro *</ControlLabel>
             <FormControl
@@ -100,7 +100,10 @@ function Endereco(props, context) {
               type="text"
             />
           </div>
-          <Button type="submit" className="btn btn-fill btn-info">Concluir</Button>
+          <Button
+            type="submit" className="btn btn-info"
+            onClick={(event) => { history.push('/criarSenha'); }}
+          >Próximo</Button>
         </form>
       </Panel>
     </div>

@@ -29,7 +29,7 @@ function Endereco(props, context) {
 
       <Panel header={<h3>Endereço</h3>}>
 
-        <form role="form" onSubmit={(e) => { submitHandler(e); }}>
+        <form role="form">
           <div className="form-group">
             <ControlLabel>Logradouro *</ControlLabel>
             <FormControl

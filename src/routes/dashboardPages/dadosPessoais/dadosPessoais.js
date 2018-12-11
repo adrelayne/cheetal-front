@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import history from '../../../core/history';
-//import reduxForm from 'redux-form';
+// import reduxForm from 'redux-form';
 import {
   Radio,
   FormControl,
@@ -31,11 +31,6 @@ import {
 
 const title = 'Dados Pessoais';
 
-function teste(e) {
-  e.preventDefault();
-  history.push('/');
-}
-
 function DadosPessoais(props, context) {
   context.setTitle(title);
 
@@ -46,7 +41,7 @@ function DadosPessoais(props, context) {
       </div>
 
       <Panel header={<h3>Dados Pessoais</h3>}>
-        <form role="form" onSubmit={(e) => { submitHandler(e); }}>
+        <form role="form">
           <div className="form-group">
             <ControlLabel>Nome Completo *</ControlLabel>
             <FormControl
@@ -136,7 +131,10 @@ function DadosPessoais(props, context) {
               type="text"
             />
           </div>
-          <Button type="submit" className="btn btn-info"  onClick = {(event) => { history.push('/endereco');}}>Próximo</Button>
+          <Button
+            type="submit" className="btn btn-info"
+            onClick={(event) => { history.push('/endereco'); }}
+          >Próximo</Button>
         </form>
       </Panel>
     </div>

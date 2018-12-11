@@ -16,7 +16,7 @@ function CriarSenha(props, context) {
       </div>
 
       <Panel header={<h3>Criar senha</h3>}>
-        <form role="form" onSubmit={(e) => { submitHandler(e); }}>
+        <form role="form">
           <fieldset>
             <div className="form-group">
               <FormControl
@@ -26,7 +26,10 @@ function CriarSenha(props, context) {
                 name="password"
               />
             </div>
-            <Button type="submit" bsSize="large" bsStyle="success" block>Cadastrar</Button>
+            <Button
+              type="submit" className="btn btn-info"
+              onClick={(event) => { history.push('/login'); }}
+            >Cadastrar</Button>
           </fieldset>
         </form>
       </Panel>
